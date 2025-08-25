@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "pos-in-class",
+    "slug": "pos-in-class",
+    "version": "1.0.0",
+    "android": {
+      "package": "com.lucasrs.posinclass"
+    },
+    "ios": {
+      "bundleIdentifier": "com.lucasrs.posinclass"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}

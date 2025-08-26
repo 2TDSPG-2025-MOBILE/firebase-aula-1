@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "36067385165",
+    "project_id": "pos-in-class",
+    "storage_bucket": "pos-in-class.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36067385165:android:2df84cd6753fdde2e36104",
+        "android_client_info": {
+          "package_name": "com.lucasrs.posinclass"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEF4EDRF2vA7YHUmYtx6EbQQhdWd-E2Z0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

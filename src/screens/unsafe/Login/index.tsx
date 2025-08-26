@@ -1,4 +1,4 @@
-import React from "react-native";
+import React, { KeyboardAvoidingView } from "react-native";
 import { useTheme } from "hooks/theme";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -9,13 +9,15 @@ export default function Login() {
 
   return (
     <SafeAreaView style={{ flex: 1, padding: 10, backgroundColor: theme?.colors?.background, gap: 20 }}>
-      <HeaderSection />
+      <KeyboardAvoidingView style={{ flex: 1 }} >
+        {/* <HeaderSection />
 
-      <HeroSection />
+        <HeroSection /> */}
 
-      <Form />
+        <Form />
 
-      <ButtonSSection />
+        {/* <ButtonSSection /> */}
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }

@@ -5,8 +5,7 @@ import { useAuth } from 'hooks/auth';
 import SafeRoutes from './safe.routes';
 
 export default function Routes() {
-  // const { isLoggedIn } = useAuth();
-  const isLoggedIn = true;
+  const { isLoggedIn } = useAuth();
 
   return (
     <NavigationContainer>

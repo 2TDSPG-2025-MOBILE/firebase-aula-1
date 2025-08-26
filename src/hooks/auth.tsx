@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import auth from "@react-native-firebase/auth"
 interface User {
   id: string;
   name: string;
@@ -8,11 +8,16 @@ interface User {
   token: string;
 }
 
+interface LoginData {
+  email: string;
+  password: string;
+}
+
 interface AuthContextData {
   user: User | null;
   loading: boolean;
   isLoggedIn: boolean;
-  login: (userData: User) => Promise<void>;
+  login: (userData: LoginData) => Promise<void>;
   logout: () => Promise<void>;
   updateUser: (userData: Partial<User>) => Promise<void>;
 }
@@ -36,8 +41,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     loadUser();
   }, []);
 
-  const login = useCallback(async (userData: User) => {
-    setUser(userData);
+  const login = useCallback(async (userData: LoginData) => {
+    const response = await auth().signInWithEmailAndPassword(userData.email, userData.password);
+
+    setUser(response.user);
     await AsyncStorage.setItem('@App:user', JSON.stringify(userData));
   }, []);
 

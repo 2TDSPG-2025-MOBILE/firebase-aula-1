@@ -23,10 +23,7 @@ export function ButtonSSection() {
         gap: 20
       }}
     >
-      <Button
-        label="Login with Email"
-        onPress={loginWithEmail}
-      />
+
 
       <View
         style={styles?.dividerContainer}

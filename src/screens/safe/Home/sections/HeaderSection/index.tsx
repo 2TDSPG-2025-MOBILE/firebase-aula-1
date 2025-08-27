@@ -33,7 +33,7 @@ export function HeaderSection() {
             borderRadius: 999
           }}
         >
-          <ShoppingCartIcon />
+          <ShoppingCartIcon stroke={theme?.colors?.icon} />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -43,7 +43,7 @@ export function HeaderSection() {
             borderRadius: 999
           }}
         >
-          <BellIcon />
+          <BellIcon stroke={theme?.colors?.icon} />
         </TouchableOpacity>
       </View>
 

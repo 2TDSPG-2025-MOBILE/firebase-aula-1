@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Input } from "components/Inputs/Input";
 import { useTheme } from "hooks/theme";
-import { KeyboardAvoidingView, Text, View } from "react-native";
-
+import { Text, View } from "react-native";
 import MailIcon from "@assets/mail-01.svg";
 import LockUnlocked from "@assets/lock-unlocked-04.svg";
 import { Button } from "components/Buttons/Button";
@@ -33,7 +32,7 @@ export function Form() {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', gap: 20 }}>
+    <View style={{ gap: 20 }}>
       <Input
         title="Email"
         icon={MailIcon}
@@ -41,16 +40,14 @@ export function Form() {
         value={email}
         onChangeText={e => setEmail(e)}
       />
-
       <Input
-        title="Pasword"
+        title="Password"
         icon={LockUnlocked}
         placeholder="Input your password"
         value={password}
         onChangeText={e => setPassword(e)}
         secureTextEntry
       />
-
       <View
         style={{
           flexDirection: "row",
@@ -67,7 +64,6 @@ export function Form() {
         >
           Remember me
         </Text>
-
         <Text
           style={[
             theme?.typography?.small,
@@ -85,5 +81,5 @@ export function Form() {
         onPress={submit}
       />
     </View>
-  )
+  );
 }

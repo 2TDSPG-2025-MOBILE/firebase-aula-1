@@ -6,6 +6,7 @@ export type Theme = {
   scheme: ColorScheme;
   colors: {
     background: string;
+    icon: string;
     surface: string;
     text: string;
     textParagraph: string;
@@ -118,6 +119,7 @@ export const lightTheme: Theme = {
   scheme: "light",
   colors: {
     background: "#F8FAFB",
+    icon: "#FFFFFF",
     surface: "#ECEFF3",
     divider: "#C1C7D0",
     text: "#151718",
@@ -138,6 +140,7 @@ export const darkTheme: Theme = {
   scheme: "dark",
   colors: {
     background: "#0B0D10",
+    icon: "#FFFFFF",
     surface: "#151A1F",
     text: "#E5E7EB",
     divider: "#C1C7D0",

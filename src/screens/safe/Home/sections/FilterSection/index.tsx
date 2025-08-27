@@ -14,7 +14,7 @@ export function FilterSection() {
   const [selectedFilter, setSelectedFilter] = useState('Hot Drink');
 
   return (
-    <View>
+    <View style={{ marginTop: 20 }}>
       <ScrollView
         contentContainerStyle={{
           gap: 10,

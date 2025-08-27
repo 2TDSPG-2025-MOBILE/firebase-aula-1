@@ -4,6 +4,7 @@ import { View } from "react-native";
 import SearchLgIcon from "@assets/search-lg.svg";
 
 export function SearchSection() {
+
   return (
     <View
       style={{

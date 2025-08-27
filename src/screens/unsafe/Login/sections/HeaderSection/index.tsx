@@ -2,10 +2,8 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "hooks/theme";
 import { TouchableOpacity, View } from "react-native";
-
 import LogoOnlyIcon from "@assets/logo-only.svg";
 import ChevronLeftIcon from "@assets/chevron-left.svg";
-
 
 export function HeaderSection() {
   const { theme } = useTheme();
@@ -16,7 +14,10 @@ export function HeaderSection() {
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        backgroundColor: theme?.colors?.background,
       }}
     >
       <TouchableOpacity
@@ -30,8 +31,7 @@ export function HeaderSection() {
       >
         <ChevronLeftIcon />
       </TouchableOpacity>
-
       <LogoOnlyIcon />
     </View>
-  )
+  );
 }

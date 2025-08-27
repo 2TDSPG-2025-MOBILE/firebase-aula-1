@@ -1,30 +1,26 @@
 import React from "react";
 import { Input } from "components/Inputs/Input";
 import { useTheme } from "hooks/theme";
-import { KeyboardAvoidingView, Text, View } from "react-native";
-
+import { Text, View } from "react-native";
 import MailIcon from "@assets/mail-01.svg";
 import LockUnlocked from "@assets/lock-unlocked-04.svg";
 
 export function Form() {
-
   const { theme } = useTheme();
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', gap: 20 }}>
+    <View style={{ gap: 20 }}>
       <Input
         title="Email"
         icon={MailIcon}
         placeholder="Enter your email"
       />
-
       <Input
-        title="Pasword"
+        title="Password"
         icon={LockUnlocked}
         placeholder="Input your password"
         secureTextEntry
       />
-
       <View
         style={{
           flexDirection: "row",
@@ -41,7 +37,6 @@ export function Form() {
         >
           Remember me
         </Text>
-
         <Text
           style={[
             theme?.typography?.small,
@@ -54,5 +49,5 @@ export function Form() {
         </Text>
       </View>
     </View>
-  )
+  );
 }

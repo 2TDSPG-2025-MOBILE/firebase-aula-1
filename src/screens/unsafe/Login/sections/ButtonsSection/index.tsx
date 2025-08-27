@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "components/Buttons/Button";
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { useTheme } from "hooks/theme";
 import { useNavigation } from "@react-navigation/native";
 
@@ -20,7 +20,7 @@ export function ButtonSSection() {
   return (
     <View
       style={{
-        gap: 20
+        gap: 10
       }}
     >
       <Button
@@ -90,16 +90,19 @@ export function ButtonSSection() {
           Don't have an account?
         </Text>
 
-        <Text
-          style={[
-            theme?.typography?.medium,
-            {
-              color: theme?.colors?.primary
-            }
-          ]}
-        >
-          Register
-        </Text>
+        <Pressable onPress={() => navigate("Register")}>
+          <Text
+            style={[
+              theme?.typography?.medium,
+              {
+                color: theme?.colors?.primary
+              }
+            ]}
+          >
+            Register
+          </Text>
+        </Pressable>
+
       </View>
     </View>
   )

@@ -14,7 +14,13 @@ export default function Home() {
   const { theme } = useTheme();
 
   return (
-    <View style={{ flex: 1, paddingTop: insets.top, backgroundColor: theme?.colors?.background }}>
+    <View
+      style={{
+        flex: 1,
+        paddingTop: insets.top,
+        backgroundColor: theme?.colors?.background,
+      }}
+    >
       <HeaderSection />
 
       {/* Search */}

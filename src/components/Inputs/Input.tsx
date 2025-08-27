@@ -40,7 +40,7 @@ export function Input({ title, icon: Icon, ...props }: IInputProps) {
           gap: 8
         }}
       >
-        {Icon && <Icon />}
+        {Icon && <Icon stroke={theme?.colors?.icon} />}
 
         <TextInput
           placeholderTextColor={theme?.colors?.placeholder}

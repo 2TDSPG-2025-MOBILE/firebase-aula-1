@@ -6,6 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 import Home from "screens/safe/Home";
 import { StyleSheet } from "react-native";
+import Inventory from "screens/safe/Inventory";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -41,7 +42,7 @@ export default function TabRoutes() {
 
       <Screen
         name="Inventory"
-        component={Home}
+        component={Inventory}
         options={{
           tabBarIcon: ({ color, focused, size }) => <AntDesign size={size} color={color} name="home" />,
         }}

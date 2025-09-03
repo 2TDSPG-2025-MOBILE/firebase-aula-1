@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "screens/safe/Home";
 import TabRoutes from "./tab.routes";
+import AddProduct from "screens/safe/AddProduct";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -27,7 +28,7 @@ export default function SafeRoutes() {
       <Screen name="DetailHistoryFailed" component={Home} />
 
       {/* Inventory */}
-      <Screen name="AddProduct" component={Home} />
+      <Screen name="AddProduct" component={AddProduct} />
 
       {/* Profile */}
       <Screen name="EditProfile" component={Home} />

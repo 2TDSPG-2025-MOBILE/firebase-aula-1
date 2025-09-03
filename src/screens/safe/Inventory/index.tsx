@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import firestore from '@react-native-firebase/firestore';
-
+import { useSafeAreaInsets } from "react-native-safe-area-context"
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const db = firestore();
 
@@ -23,11 +26,15 @@ interface ICategoryPromisses {
 
 
 export default function Inventory() {
+  const {
+    top
+  } = useSafeAreaInsets();
+  const { navigate } = useNavigation();
   const [products, setProducts] = useState<Array<IProductProps>>([]);
 
   useEffect(() => {
     (async () => {
-      const response = await firestore()
+      const response = await db
         .collection('products')
         .get();
 
@@ -75,44 +82,85 @@ export default function Inventory() {
   }, []);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      {/* <Text style={{ fontSize: 30, fontWeight: 'bold' }}>Inventory</Text> */}
+    <View
+      style={{
+        paddingTop: top,
+        flex: 1
+      }}
+    >
+      <View style={{
+        flex: 1,
+        // justifyContent: 'center',
+        paddingHorizontal: 20
+        // alignItems: 'center'
+      }
+      }>
+        {/* <Text style={{ fontSize: 30, fontWeight: 'bold' }}>Inventory</Text> */}
 
-      {products.map(item => (
-        <View>
-          {/* Imagem/ detalhe */}
+        {products.map(item => (
           <View>
-            {/* Imagem e price */}
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-              <Image
-                source={{
-                  uri: item?.imageUrl
-                }}
-                style={{
-                  width: 80,
-                  height: 80,
-                  borderRadius: 20
-                }}
-                resizeMode="cover"
-              />
+            {/* Imagem/ detalhe */}
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 20
+              }}
+            >
+              {/* Imagem e price */}
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                <Image
+                  source={{
+                    uri: item?.imageUrl
+                  }}
+                  style={{
+                    width: 80,
+                    height: 80,
+                    borderRadius: 20
+                  }}
+                  resizeMode="cover"
+                />
 
-              <View>
-                <Text>{item?.name}</Text>
-                <Text>R$ {item?.price}</Text>
+                <View>
+                  <Text>{item?.name}</Text>
+                  <Text>R$ {item?.price}</Text>
+                </View>
               </View>
-            </View>
 
-            {/* Able e stock */}
-            <View>
+              {/* Able e stock */}
+              {/* <View>
               <TouchableOpacity><Text>X</Text></TouchableOpacity>
               <Text>Stocks 60</Text>
+            </View> */}
             </View>
-          </View>
 
-          {/* Ações */}
-          <View></View>
-        </View>
-      ))}
+            {/* Ações */}
+            <View></View>
+          </View>
+        ))}
+
+
+
+      </View>
+
+      {/* Botão de adicionar */}
+      <TouchableOpacity
+        style={{
+          position: 'absolute',
+          bottom: 100,
+          right: 40,
+          backgroundColor: "#25D076",
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        onPress={() => navigate("AddProduct")}
+      >
+        <AntDesign name="plus" size={24} color="white" />
+      </TouchableOpacity>
+
     </View>
   )
 }
